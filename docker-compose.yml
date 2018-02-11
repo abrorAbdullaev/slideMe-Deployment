@@ -1,0 +1,14 @@
+version: '2.0'
+services:  
+    web:
+        build: .
+        ports:
+         - "80:80"
+        volumes: 
+         - ./app:/var/www/informe
+        links:
+         - php
+    php:
+        image: php:7-fpm
+        volumes:
+         - ./app:/var/www/informe
