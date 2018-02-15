@@ -1,0 +1,11 @@
+echo "Installing composer dependencies"
+composer install -d=/var/www/informe
+
+echo "Installing npm dependencies"
+npm install /var/www/informe/ --only-dev
+
+echo "Compiling the styles"
+echo "The preprocessor tasks are not defined yet."
+
+echo "Runnig migration scripts"
+echo "Define what sripts to run"

@@ -11,8 +11,7 @@ services:
          - php
          - db
     php:
-        build:
-         context: php/
+        image: php:7-fpm
         ports:
          - "9000:9000"
         volumes:
@@ -24,8 +23,7 @@ services:
         volumes_from:
          - php
     db:
-        build:
-         context: db/
+        image: mysql
         volumes_from:
          - php
         env_file:
