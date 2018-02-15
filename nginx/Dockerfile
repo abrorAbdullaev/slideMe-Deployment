@@ -10,7 +10,6 @@ FROM dockerfile/ubuntu
 # Install Nginx, nano, php7.0
 RUN \
   add-apt-repository -y ppa:nginx/stable && \
-  add-apt-repository ppa:ondrej/php && \
   apt-get update && \
   apt-get install -y --force-yes nano && \
   apt-get install -y --force-yes nginx && \
@@ -18,10 +17,10 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx;
 
-COPY ./nginx/default /etc/nginx/sites-available/
-
+# Adding default vhost config
+COPY ./files/default /etc/nginx/sites-available/
 # Basic auth file
-COPY ./nginx/.htpasswd /etc/nginx/
+COPY ./files/.htpasswd /etc/nginx/
 
 # Define working directory
 WORKDIR /etc/nginx

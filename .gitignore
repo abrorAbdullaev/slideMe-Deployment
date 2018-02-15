@@ -1,2 +1,5 @@
 app/*
+db-vars.env
+
 !app
+

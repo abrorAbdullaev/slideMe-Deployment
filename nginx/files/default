@@ -6,7 +6,9 @@ server {
 
         index index.php index.html index.htm index.nginx-debian.html;
 	
-        server_name _;
+        server_name informe.hackathon.scandiweb.com;
+
+	error_log /var/log/nginx/informe_error.log;
 
         location / {
                 try_files $uri $uri/ /index.php =404;
@@ -25,4 +27,3 @@ server {
 	        fastcgi_param PATH_INFO $fastcgi_path_info;
 	}
 }
-
